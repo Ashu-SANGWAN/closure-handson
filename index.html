@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>closures handson</title>
+  </head>
+  <style>
+    body {
+      background-color: bisque;
+      padding: 20px;
+    }
+    p{
+      color: blue;
+    }
+  </style>
+  <body>
+    <h1 align="center"> Closure handson </h1>
+    <h3>
+      Q.1
+      <pre>
+ "    function counter(){
+    var counter = 0;
+
+    function IncreaseCounter() {
+        return counter += 1;
+    };
+
+    return IncreaseCounter;
+}
+
+var counter = Counter();
+alert(counter());
+alert(counter());
+alert(counter());
+alert(counter());"</pre
+      >
+    </h3>
+    <pre style="font-size: 15px"><p>
+The output of this code would be: 
+1
+2
+3
+4</p></pre>
+    <h3>
+      Q.2
+      <pre>
+ "let count = 0;
+(function () {
+  if (count === 0) {
+    let count = 1;
+    console.log(count); // What is logged?
+  }
+  console.log(count); // What is logged?
+})();"</pre
+      >
+    </h3>
+    <pre style="font-size: 15px"> <p> Answer: 1, 0</p></pre>
+    <h3>
+      Q.3
+      <pre>
+ "for (var i = 0; i < 3; i++) {
+  setTimeout(function log() {
+    console.log(i); // What is logged?
+  }, 1000);
+}"
+
+ </pre
+      >
+    </h3>
+    <pre style="font-size: 15px"><p>This will log 3, 3, 3 </p></pre>
+    <h3>
+      Q.4 Write a code to calculate area of a rectangle using inner function. In
+      this case outer function should accept parameter length and inner function
+      should accept parameter breadth.
+    </h3>
+    <pre style="font-size: 15px">
+ <p>def area_of_rectangle(length):
+ 
+        def inner_function(breadth):
+            return length * breadth
+     
+        return inner_function
+     
+    result = area_of_rectangle(10)
+     
+    print(result(5))</p></pre>
+    <h3>
+      Q.5 Take a variable in outer function and create an inner function to
+      increase the counter every time it is called
+    </h3>
+    <pre style="font-size: 15px"><p>
+// Outer function 
+        var count = 0; 
+        
+        function increaseCounter() {
+          // Inner function 
+          count++; </p></pre>
+    
+    <h3>
+      Q.6
+      <pre>
+ "Print Output
+
+      var a = 12;
+      (function () {
+        alert(a);
+      })();"</pre
+      >
+    </h3>
+    <pre style="font-size: 15px"><p> OUTPUT:
+        12
+        <i >a is a global variable therefore the console.log statement could access its value and we get the output as 12</p></i></pre>
+    <h3>
+      Q.7
+      <pre>
+ "var a = 10;
+  var x = (function () {
+    var a = 12;
+    return function () {
+      alert(a);
+    };
+  })();
+  x();"</pre
+      >
+    </h3>
+    <pre style="font-size: 15px"><p>  OUTPUT:
+    12
+    <i>12 is printed as it accesses the value of variable a in the function scope</i></p></pre>
+    <h3>
+      Q.8
+      <pre>
+"var globalVar = ""xyz"";
+
+      (function outerFunc(outerArg) {
+          var outerVar = 'a';
+          
+          (function innerFunc(innerArg) {
+          var innerVar = 'b';
+          
+          console.log(
+              ""outerArg = "" + outerArg + ""\n"" +
+              ""innerArg = "" + innerArg + ""\n"" +
+              ""outerVar = "" + outerVar + ""\n"" +
+              ""innerVar = "" + innerVar + ""\n"" +
+              ""globalVar = "" + globalVar);
+          
+          })(456);
+      })(123);"</pre
+      >
+    </h3>
+    <pre style="font-size: 15px"><p>
+ OUTPUT:
+        outerArg = 123
+        innerArg = 456
+        outerVar = a 
+        innerVar = b 
+        globalVar = xyz</p></pre>
+  </body>
+</html>
